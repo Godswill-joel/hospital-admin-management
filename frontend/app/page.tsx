@@ -63,7 +63,7 @@ export default function LoginPage() {
 
         {/* Brand */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="bg-primary rounded-full p-2">
+          <div className="bg-blue-400 rounded-full p-2">
             <Heart className="w-6 h-6 text-primary-foreground" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">MediCare</h1>

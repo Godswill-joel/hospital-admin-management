@@ -3,30 +3,21 @@
 import { Bell, Search, User, LogOut, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { roleLabels } from "../data/data";
 
 
 export function Topbar({ role }: { role: string }) {
-    const router = useRouter()
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
-    const [userEmail, setUserEmail] = useState("")
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+    const [userEmail, setUserEmail] = useState("");
 
     useEffect(() => {
         setMounted(true)
         setUserEmail(localStorage.getItem("userEmail") || "")
     }, [])
 
-
-
-    const handleLogout = () => {
-        localStorage.removeItem("userRole")
-        localStorage.removeItem("userEmail")
-        router.push("/")
-    }
 
     const toggleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark")
@@ -67,14 +58,6 @@ export function Topbar({ role }: { role: string }) {
                     </div>
                 </div>
 
-                <Button
-                    variant="outline"
-                    onClick={handleLogout}
-                    className="gap-2 border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground bg-transparent"
-                >
-                    <LogOut className="w-4 h-4" />
-                    <span className="hidden sm:inline">Logout</span>
-                </Button>
             </div>
         </div>
     )

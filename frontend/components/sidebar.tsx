@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import {mainLinks, toolCategories } from "@/data/data"
-import {ChevronDown, Menu, X,Send,} from "lucide-react";
+import { mainLinks, toolCategories } from "@/data/data"
+import { ChevronDown, Menu, X, Send, LogOut, } from "lucide-react";
+import { Button } from "./ui/button";
 
 // ─── Accordion item ──────────────────────────────────────────────────────────
 function CategoryItem({ cat }: { cat: typeof toolCategories[0] }) {
@@ -52,12 +54,20 @@ function CategoryItem({ cat }: { cat: typeof toolCategories[0] }) {
 
 export function Sidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter();
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("userRole")
+    localStorage.removeItem("userEmail")
+    router.push("/")
+  }
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-white">
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-5 border-b border-white/5">
-        <div className="flex items-center gap-1 text-white font-black text-lg tracking-tight">
+        <div className="flex items-center gap-1 text-black font-black text-lg tracking-tight">
           <span className="text-cyan-400 text-2xl leading-none">⌘</span>
           <span>MediCare</span>
         </div>
@@ -70,7 +80,7 @@ export function Sidebar() {
           <a
             key={link.label}
             href={link.href}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-300 hover:text-white hover:bg-white/5 transition-all duration-200 group"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-black hover:text-blue hover:bg-white/5 transition-all duration-200 group"
           >
             <link.icon className="w-4 h-4 flex-shrink-0 text-zinc-500 group-hover:text-cyan-400 transition-colors" />
             <span className="text-sm font-medium">{link.label}</span>
@@ -103,7 +113,14 @@ export function Sidebar() {
           className="flex items-center gap-3 px-3 py-3 rounded-xl bg-cyan-400/10 hover:bg-cyan-400/20 text-cyan-400 transition-all duration-200 group"
         >
           <Send className="w-4 h-4 flex-shrink-0" />
-          <span className="text-sm font-semibold">Submit a Tool</span>
+          <Button
+            variant="outline"
+            onClick={handleLogout}
+            className="gap-2 border-destructive/30 text-black hover:bg-destructive hover:text-destructive-foreground bg-transparent"
+          >
+            <LogOut className="w-4 h-4" />
+            <span className="hidden sm:inline">Logout</span>
+          </Button>
         </a>
       </div>
     </div>

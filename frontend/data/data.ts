@@ -36,7 +36,7 @@ export const mainLinks = [
     { label: "Articles", icon: BookOpen, href: "#", dot: false },
     { label: "Collections", icon: FolderOpen, href: "#", dot: true },
     { label: "Marketplace", icon: ShoppingBag, href: "#", dot: false },
-    { label: "ogfolio", icon: User, href: "#", dot: false },
+    { label: "", icon: User, href: "#", dot: false },
 ];
 
 // ─── Collapsible tool categories ────────────────────────────────────────────

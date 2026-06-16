@@ -18,21 +18,25 @@ export function Topbar({ role }: { role: string }) {
         setUserEmail(localStorage.getItem("userEmail") || "")
     }, [])
 
+    useEffect(() => {
+        console.log("Current theme:", theme);
+      }, [theme]);
+
 
     const toggleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark")
     }
 
     return (
-        <div className="h-16 text-black bg-card border-b border-border flex items-center justify-between px-6">
+        <div className="h-16  text-black bg-[#F5F5DC] border-b border-border flex items-center justify-between p-6">
             <div className="flex items-center gap-4 flex-1">
-                <div className="hidden md:flex items-center gap-2 bg-input rounded-lg px-3 py-2 w-64">
+                <div className="hidden md:flex items-center gap-2 bg-[#F1E9D2] rounded-lg px-3 py-2 w-64">
                     <Search className="w-4 h-4 text-muted-foreground" />
                     <Input type="text" placeholder="Search..." className="bg-transparent border-0 outline-none text-sm" />
                 </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 bg-[#F5F5DC]">
                 {mounted && (
                     <Button
                         variant="ghost"
@@ -52,8 +56,8 @@ export function Topbar({ role }: { role: string }) {
                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                         <User className="w-4 h-4 text-primary-foreground" />
                     </div>
-                    <div className="text-sm">
-                        <p className="font-semibold text-foreground">{roleLabels[role as keyof typeof roleLabels]}</p>
+                    <div className="text-sm ">
+                        <p className="font-semibold text-[#00000]">{roleLabels[role as keyof typeof roleLabels]}</p>
                         <p className="text-xs text-muted-foreground">{userEmail}</p>
                     </div>
                 </div>

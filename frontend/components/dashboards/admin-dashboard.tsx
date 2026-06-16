@@ -20,7 +20,7 @@ const COLORS = ["#6366f1", "#06b6d4", "#10b981", "#f59e0b"]
 
 export function AdminDashboard() {
   return (
-    <div className="space-y-6 bg-white text-black">
+    <div className="space-y-6 bg-[#F1E9D2] text-black">
       <div>
         <h1 className="text-3xl font-bold">Administrator Dashboard</h1>
         <p className="text-muted-foreground">Welcome back to MediCare Hospital Management System</p>

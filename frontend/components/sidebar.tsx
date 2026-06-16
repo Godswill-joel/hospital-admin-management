@@ -64,11 +64,11 @@ export function Sidebar() {
   }
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-background">
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-5 border-b border-white/5">
         <div className="flex items-center gap-1 text-black font-black text-lg tracking-tight">
-          <span className="text-cyan-400 text-2xl leading-none">⌘</span>
+          <span className="text-cyan-400 text-4xl leading-none">⌘</span>
           <span>MediCare</span>
         </div>
       </div>

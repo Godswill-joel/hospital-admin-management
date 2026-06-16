@@ -1,6 +1,6 @@
 "use client"
 
-import { Bell, Search, User, LogOut, Moon, Sun } from "lucide-react";
+import { Bell, Search, User, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { useTheme } from "next-themes";
@@ -24,7 +24,7 @@ export function Topbar({ role }: { role: string }) {
     }
 
     return (
-        <div className="h-16 bg-card border-b border-border flex items-center justify-between px-6">
+        <div className="h-16 text-black bg-card border-b border-border flex items-center justify-between px-6">
             <div className="flex items-center gap-4 flex-1">
                 <div className="hidden md:flex items-center gap-2 bg-input rounded-lg px-3 py-2 w-64">
                     <Search className="w-4 h-4 text-muted-foreground" />

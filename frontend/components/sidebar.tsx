@@ -90,20 +90,6 @@ export function Sidebar() {
           </a>
         ))}
 
-        {/* Tools section */}
-        <div className="pt-5 pb-2 px-3 flex items-center justify-between">
-          <span className="text-[10px] uppercase tracking-widest text-zinc-600 font-semibold">
-            Tools
-          </span>
-          <ChevronDown className="w-3 h-3 text-zinc-600" />
-        </div>
-
-        {/* Collapsible categories */}
-        <div className="space-y-0.5">
-          {toolCategories.map((cat) => (
-            <CategoryItem key={cat.label} cat={cat} />
-          ))}
-        </div>
       </div>
 
       {/* Footer CTA */}

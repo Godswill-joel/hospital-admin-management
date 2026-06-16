@@ -20,21 +20,21 @@ const COLORS = ["#6366f1", "#06b6d4", "#10b981", "#f59e0b"]
 
 export function AdminDashboard() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-white text-black">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Administrator Dashboard</h1>
+        <h1 className="text-3xl font-bold">Administrator Dashboard</h1>
         <p className="text-muted-foreground">Welcome back to MediCare Hospital Management System</p>
       </div>
 
       {/* Key Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statsData.map((stat) => (
           <Card key={stat.label} className="border-border">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  <p className="text-2xl font-bold text-foreground mt-1">{stat.value}</p>
+                  <p className="text-2xl font-bold mt-1">{stat.value}</p>
                 </div>
                 <div className={`p-3 rounded-full bg-primary/10 ${stat.color}`}>
                   <stat.icon className="w-6 h-6" />
@@ -121,7 +121,7 @@ export function AdminDashboard() {
             ].map((activity, i) => (
               <div key={i} className="flex items-center justify-between py-3 border-b border-border last:border-0">
                 <div>
-                  <p className="text-sm font-medium text-foreground">{activity.action}</p>
+                  <p className="text-xl font-medium ">{activity.action}</p>
                   <p className="text-xs text-muted-foreground">{activity.user}</p>
                 </div>
                 <span className="text-xs text-muted-foreground">{activity.time}</span>

@@ -17,7 +17,12 @@ import {
     Users,
     Calendar,
     DollarSign,
-    AlertCircle
+    AlertCircle,
+    BarChart3,
+    Stethoscope,
+    Pill,
+    FileText,
+    Settings
 } from "lucide-react";
 
 // Top Bar 
@@ -32,11 +37,15 @@ export const roleLabels = {
 // SideBar Data
 // ─── Static nav links ───────────────────────────────────────────────────────
 export const mainLinks = [
-    { label: "Explore", icon: Compass, href: "#", dot: false },
-    { label: "Articles", icon: BookOpen, href: "#", dot: false },
-    { label: "Collections", icon: FolderOpen, href: "#", dot: true },
-    { label: "Marketplace", icon: ShoppingBag, href: "#", dot: false },
-    { label: "", icon: User, href: "#", dot: false },
+    { label: "Dashboard", icon: BarChart3, href: "/dashboard", dot:false },
+    { label: "Patients", icon: Users, href: "/patients", dot:false },
+    { label: "Staff Management", icon: Stethoscope, href: "/staff", dot:false },
+    { label: "Appointments", icon: Calendar, href: "/appointments", dot:false },
+    { label: "Inventory", icon: Pill, href: "/inventory", dot:false },
+    { label: "Medical Records", icon: FileText, href: "/medical-records", dot:false },
+    { label: "Billing", icon: DollarSign, href: "/billing", dot:false },
+    { label: "Prescriptions", icon: Pill, href: "/prescriptions", dot:false },
+    { label: "Settings", icon: Settings, href: "#", dot:false },
 ];
 
 // ─── Collapsible tool categories ────────────────────────────────────────────

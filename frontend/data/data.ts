@@ -37,15 +37,15 @@ export const roleLabels = {
 // SideBar Data
 // ─── Static nav links ───────────────────────────────────────────────────────
 export const mainLinks = [
-    { label: "Dashboard", icon: BarChart3, href: "/dashboard", dot:false },
-    { label: "Patients", icon: Users, href: "/patients", dot:false },
-    { label: "Staff Management", icon: Stethoscope, href: "/staff", dot:false },
-    { label: "Appointments", icon: Calendar, href: "/appointments", dot:false },
-    { label: "Inventory", icon: Pill, href: "/inventory", dot:false },
-    { label: "Medical Records", icon: FileText, href: "/medical-records", dot:false },
-    { label: "Billing", icon: DollarSign, href: "/billing", dot:false },
-    { label: "Prescriptions", icon: Pill, href: "/prescriptions", dot:false },
-    { label: "Settings", icon: Settings, href: "#", dot:false },
+    { label: "Dashboard", icon: BarChart3, href: "/dashboard", dot: false },
+    { label: "Patients", icon: Users, href: "/patients", dot: false },
+    { label: "Staff Management", icon: Stethoscope, href: "/staff", dot: false },
+    { label: "Appointments", icon: Calendar, href: "/appointments", dot: false },
+    { label: "Inventory", icon: Pill, href: "/inventory", dot: false },
+    { label: "Medical Records", icon: FileText, href: "/medical-records", dot: false },
+    { label: "Billing", icon: DollarSign, href: "/billing", dot: false },
+    { label: "Prescriptions", icon: Pill, href: "/prescriptions", dot: false },
+    { label: "Settings", icon: Settings, href: "#", dot: false },
 ];
 
 // ─── Collapsible tool categories ────────────────────────────────────────────
@@ -124,3 +124,58 @@ export const departmentData = [
     { name: "Neurology", value: 210 },
     { name: "General", value: 190 },
 ];
+
+// patient-Dashboard
+interface Patient {
+    id: number
+    name: string
+    email: string
+    phone: string
+    age: number
+    bloodType: string
+    lastVisit: string
+    status: "Active" | "Inactive"
+}
+
+export const patientsData: Patient[] = [
+    {
+        id: 1,
+        name: "John Doe",
+        email: "john@example.com",
+        phone: "(555) 123-4567",
+        age: 45,
+        bloodType: "O+",
+        lastVisit: "2024-01-10",
+        status: "Active",
+    },
+    {
+        id: 2,
+        name: "Jane Smith",
+        email: "jane@example.com",
+        phone: "(555) 234-5678",
+        age: 38,
+        bloodType: "A-",
+        lastVisit: "2024-01-08",
+        status: "Active",
+    },
+    {
+        id: 3,
+        name: "Robert Johnson",
+        email: "robert@example.com",
+        phone: "(555) 345-6789",
+        age: 62,
+        bloodType: "B+",
+        lastVisit: "2024-01-05",
+        status: "Active",
+    },
+    {
+        id: 4,
+        name: "Sarah Williams",
+        email: "sarah@example.com",
+        phone: "(555) 456-7890",
+        age: 29,
+        bloodType: "AB+",
+        lastVisit: "2024-01-02",
+        status: "Inactive",
+    },
+]

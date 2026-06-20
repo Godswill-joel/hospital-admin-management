@@ -105,7 +105,7 @@ export default function LoginPage() {
                     }`}
                 />
                 {emailError && (
-                  <p className="text-xs text-red-500">Email doesn't match this role</p>
+                  <p className="text-xs text-red-500">Email doesn't match</p>
                 )}
               </div>
 
@@ -135,7 +135,7 @@ export default function LoginPage() {
                   </button>
                 </div>
                 {passwordError && (
-                  <p className="text-xs text-red-500">Password doesn't match this role</p>
+                  <p className="text-xs text-red-500">Password doesn't match</p>
                 )}
               </div>
 

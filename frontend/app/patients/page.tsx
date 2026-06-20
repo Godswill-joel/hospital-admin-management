@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { patientsData } from "@/data/data";
-import { Search, Plus, Edit2, Trash2, Eye, X } from "lucide-react";
+import { ToastAlert } from "@/components/ui/alert";
+import { Search, Plus, Edit2, Trash2, Eye, X, CheckCircle2 } from "lucide-react";
 
 interface Patient {
     id: number
@@ -20,6 +21,8 @@ interface Patient {
     lastVisit: string
     status: "Active" | "Inactive"
 }
+
+
 
 
 
@@ -36,6 +39,13 @@ export default function PatientsPage() {
         phone: "",
         age: "",
         bloodType: "",
+    })
+    const [toast, setToast] = useState({
+        show: false,
+        variant: "default" as "default" | "destructive",
+        title: "",
+        description: "",
+        icon: null as React.ReactNode,
     })
     const userRole = localStorage.getItem("userRole") || "admin"
 
@@ -94,12 +104,41 @@ export default function PatientsPage() {
         }
         setShowFormModal(false)
     }
+    const showToast = ({
+        variant = "default",
+        title,
+        description,
+        icon,
+    }: {
+        variant?: "default" | "destructive";
+        title: string;
+        description: string;
+        icon?: React.ReactNode;
+    }) => {
+        setToast({
+            show: true,
+            variant,
+            title,
+            description,
+            icon,
+        });
+
+        setTimeout(() => {
+            setToast((prev) => ({ ...prev, show: false }));
+        }, 3000);
+    };
+
 
     const handleDeletePatient = (id: number) => {
-        if (confirm("Are you sure you want to delete this patient?")) {
-            setPatients(patients.filter((p) => p.id !== id))
-        }
-    }
+        setPatients((prev) => prev.filter((p) => p.id !== id));
+
+        showToast({
+            variant: "destructive",
+            title: "Patient deleted",
+            description: "The patient record has been removed successfully.",
+            icon: <Trash2 className="text-red-500" />,
+        });
+    };
 
     return (
         <div className="min-h-screen bg-background">
@@ -175,8 +214,8 @@ export default function PatientsPage() {
                                                     <td className="py-4 px-4">
                                                         <span
                                                             className={`px-3 py-1 rounded-full text-xs font-medium ${patient.status === "Active"
-                                                                    ? "bg-green-100 text-green-700"
-                                                                    : "bg-gray-100 text-gray-700"
+                                                                ? "bg-green-100 text-green-700"
+                                                                : "bg-gray-100 text-gray-700"
                                                                 }`}
                                                         >
                                                             {patient.status}
@@ -364,6 +403,13 @@ export default function PatientsPage() {
                                 </Card>
                             </div>
                         )}
+                        <ToastAlert
+                            show={toast.show}
+                            variant={toast.variant}
+                            icon={toast.icon}
+                            title={toast.title}
+                            description={toast.description}
+                        />
                     </div>
                 </main>
             </div>

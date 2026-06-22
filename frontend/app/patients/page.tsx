@@ -23,13 +23,11 @@ interface Patient {
 }
 
 
-
-
-
 export default function PatientsPage() {
     const [searchTerm, setSearchTerm] = useState("")
     const [patients, setPatients] = useState(patientsData)
     const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null)
+    const [patientToDelete, setPatientToDelete] = useState<number | null>(null);
     const [showModal, setShowModal] = useState(false)
     const [showFormModal, setShowFormModal] = useState(false)
     const [editingPatient, setEditingPatient] = useState<Patient | null>(null)
@@ -129,19 +127,25 @@ export default function PatientsPage() {
     };
 
 
-    const handleDeletePatient = (id: number) => {
-        setPatients((prev) => prev.filter((p) => p.id !== id));
+    const handleDeletePatient = () => {
+        if (patientToDelete === null) return;
+
+        setPatients((prev) =>
+            prev.filter((p) => p.id !== patientToDelete)
+        );
 
         showToast({
             variant: "destructive",
-            title: "Patient deleted",
-            description: "The patient record has been removed successfully.",
+            title: "Patient Deleted",
+            description: "The patient record has been deleted successfully.",
             icon: <Trash2 className="text-red-500" />,
         });
+
+        setPatientToDelete(null);
     };
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-[#F1E9D2]">
             <Sidebar />
 
             <div className="lg:ml-[260px] flex flex-col min-h-screen">
@@ -155,7 +159,7 @@ export default function PatientsPage() {
                                 <h1 className="text-3xl font-bold text-foreground">Patient Management</h1>
                                 <p className="text-muted-foreground">Manage all patient records and information</p>
                             </div>
-                            <Button className="bg-primary text-primary-foreground gap-2" onClick={handleAddPatient}>
+                            <Button className="bg-cyan-400 text-primary-foreground gap-2" onClick={handleAddPatient}>
                                 <Plus className="w-4 h-4" />
                                 Add Patient
                             </Button>
@@ -236,7 +240,11 @@ export default function PatientsPage() {
                                                             <Button size="sm" variant="ghost" onClick={() => handleEditPatient(patient)}>
                                                                 <Edit2 className="w-4 h-4" />
                                                             </Button>
-                                                            <Button size="sm" variant="ghost" onClick={() => handleDeletePatient(patient.id)}>
+                                                            <Button
+                                                                size="sm"
+                                                                variant="ghost"
+                                                                onClick={() => setPatientToDelete(patient.id)}
+                                                            >
                                                                 <Trash2 className="w-4 h-4 text-destructive" />
                                                             </Button>
                                                         </div>
@@ -398,6 +406,46 @@ export default function PatientsPage() {
                                                     </div>
                                                 ))}
                                             </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        )}
+                        {patientToDelete !== null && (
+                            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 hover">
+                                <Card className="w-full max-w-md border-border shadow-xl">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center gap-2 text-destructive">
+                                            <Trash2 className="w-6 h-6" />
+                                            Delete Patient
+                                        </CardTitle>
+
+                                        <CardDescription className="pt-2 text-base">
+                                            Are you sure you want to delete this patient?
+                                        </CardDescription>
+
+                                        <p className="text-sm text-muted-foreground">
+                                            This action cannot be undone.
+                                        </p>
+                                    </CardHeader>
+
+                                    <CardContent>
+                                        <div className="flex justify-end gap-3">
+                                            <Button
+                                                variant="outline"
+                                                onClick={() => setPatientToDelete(null)}
+                                                className="hover:text-black"
+                                            >
+                                                No
+                                            </Button>
+
+                                            <Button
+                                                variant="destructive"
+                                                onClick={handleDeletePatient}
+
+                                            >
+                                                Yes, Delete
+                                            </Button>
                                         </div>
                                     </CardContent>
                                 </Card>

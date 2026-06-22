@@ -53,7 +53,7 @@ export function Topbar({ role }: { role: string }) {
                 </Button>
 
                 <div className="hidden sm:flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-cyan-400 flex items-center justify-center">
                         <User className="w-4 h-4 text-primary-foreground" />
                     </div>
                     <div className="text-sm ">

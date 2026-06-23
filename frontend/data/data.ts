@@ -179,3 +179,70 @@ export const patientsData: Patient[] = [
         status: "Inactive",
     },
 ]
+
+
+// staff management 
+interface StaffMember {
+    id: number
+    name: string
+    role: string
+    department: string
+    email: string
+    phone: string
+    status: "Active" | "Inactive"
+    startDate: string
+}
+
+export const staffData: StaffMember[] = [
+    {
+        id: 1,
+        name: "Dr. James Smith",
+        role: "Senior Doctor",
+        department: "Cardiology",
+        email: "james.smith@medicare.com",
+        phone: "(555) 111-2222",
+        status: "Active",
+        startDate: "2020-03-15",
+    },
+    {
+        id: 2,
+        name: "Dr. Sarah Johnson",
+        role: "Doctor",
+        department: "Neurology",
+        email: "sarah.johnson@medicare.com",
+        phone: "(555) 222-3333",
+        status: "Active",
+        startDate: "2021-06-20",
+    },
+    {
+        id: 3,
+        name: "Emily Brown",
+        role: "Head Nurse",
+        department: "ICU",
+        email: "emily.brown@medicare.com",
+        phone: "(555) 333-4444",
+        status: "Active",
+        startDate: "2019-01-10",
+    },
+    {
+        id: 4,
+        name: "Michael Davis",
+        role: "Lab Technician",
+        department: "Laboratory",
+        email: "michael.davis@medicare.com",
+        phone: "(555) 444-5555",
+        status: "Active",
+        startDate: "2022-02-01",
+    },
+    {
+        id: 5,
+        name: "Jennifer Wilson",
+        role: "Receptionist",
+        department: "Reception",
+        email: "jennifer.wilson@medicare.com",
+        phone: "(555) 555-6666",
+        status: "Inactive",
+        startDate: "2021-09-05",
+    },
+]
+

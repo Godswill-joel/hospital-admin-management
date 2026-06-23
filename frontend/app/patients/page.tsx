@@ -144,6 +144,8 @@ export default function PatientsPage() {
         setPatientToDelete(null);
     };
 
+    
+
     return (
         <div className="min-h-screen bg-[#F1E9D2]">
             <Sidebar />
@@ -152,7 +154,7 @@ export default function PatientsPage() {
                 <Topbar role={userRole} />
 
                 <main className="flex-1 overflow-y-auto">
-                    <div className="w-full max-w-7xl mx-auto px-6 py-6 lg:px-8 space-y-6">
+                    <div className="w-full  mx-auto px-6 py-6 lg:px-8 space-y-6">
                         {/* Header */}
                         <div className="flex items-center justify-between">
                             <div>

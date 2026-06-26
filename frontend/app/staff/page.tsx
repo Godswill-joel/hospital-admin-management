@@ -384,6 +384,13 @@ export default function StaffPage() {
                             </Card>
                         </div>
                     )}
+                    <ToastAlert
+                        show={toast.show}
+                        variant={toast.variant}
+                        icon={toast.icon}
+                        title={toast.title}
+                        description={toast.description}
+                    />
                 </main>
             </div>
         </div>

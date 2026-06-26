@@ -246,3 +246,53 @@ export const staffData: StaffMember[] = [
     },
 ]
 
+interface Appointment {
+    id: number
+    patientName: string
+    doctorName: string
+    date: string
+    time: string
+    type: string
+    status: "Scheduled" | "Completed" | "Cancelled" | "No-show"
+}
+
+
+export const appointmentsData: Appointment[] = [
+    {
+        id: 1,
+        patientName: "John Doe",
+        doctorName: "Dr. Smith",
+        date: "2024-01-15",
+        time: "10:00 AM",
+        type: "Consultation",
+        status: "Scheduled",
+    },
+    {
+        id: 2,
+        patientName: "Jane Smith",
+        doctorName: "Dr. Johnson",
+        date: "2024-01-15",
+        time: "2:00 PM",
+        type: "Follow-up",
+        status: "Scheduled",
+    },
+    {
+        id: 3,
+        patientName: "Robert Johnson",
+        doctorName: "Dr. Williams",
+        date: "2024-01-14",
+        time: "11:00 AM",
+        type: "Check-up",
+        status: "Completed",
+    },
+    {
+        id: 4,
+        patientName: "Sarah Williams",
+        doctorName: "Dr. Brown",
+        date: "2024-01-12",
+        time: "3:00 PM",
+        type: "Consultation",
+        status: "Cancelled",
+    },
+]
+
